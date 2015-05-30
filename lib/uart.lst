@@ -1,0 +1,74 @@
+   1               		.file	"uart.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	_Z9uart_initv
+  18               	_Z9uart_initv:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 87E1      		ldi r24,lo8(23)
+  25 0002 89B9      		out 41-32,r24
+  26               	.LM3:
+  27 0004 88E1      		ldi r24,lo8(24)
+  28 0006 8AB9      		out 42-32,r24
+  29               	/* epilogue start */
+  30               	.LM4:
+  31 0008 0895      		ret
+  32               	.LFE2:
+  34               	.global	_Z17uart_interrupt_rxh
+  36               	_Z17uart_interrupt_rxh:
+  37               	.LFB3:
+  38               	.LM5:
+  39               	.LVL0:
+  40               	/* prologue: function */
+  41               	/* frame size = 0 */
+  42               	.LM6:
+  43 000a 8823      		tst r24
+  44 000c 01F0      		breq .L4
+  45               	.LM7:
+  46 000e 579A      		sbi 42-32,7
+  47 0010 0895      		ret
+  48               	.L4:
+  49               	.LM8:
+  50 0012 5798      		cbi 42-32,7
+  51 0014 0895      		ret
+  52               	.LFE3:
+  54               	.global	_Z17uart_interrupt_txh
+  56               	_Z17uart_interrupt_txh:
+  57               	.LFB4:
+  58               	.LM9:
+  59               	.LVL1:
+  60               	/* prologue: function */
+  61               	/* frame size = 0 */
+  62               	.LM10:
+  63 0016 8823      		tst r24
+  64 0018 01F0      		breq .L8
+  65               	.LM11:
+  66 001a 569A      		sbi 42-32,6
+  67 001c 0895      		ret
+  68               	.L8:
+  69               	.LM12:
+  70 001e 5698      		cbi 42-32,6
+  71 0020 0895      		ret
+  72               	.LFE4:
+ 114               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 uart.c
+C:\Users\JANHOR~1\AppData\Local\Temp/ccA9l5PR.s:2      *ABS*:0000003f __SREG__
+C:\Users\JANHOR~1\AppData\Local\Temp/ccA9l5PR.s:3      *ABS*:0000003e __SP_H__
+C:\Users\JANHOR~1\AppData\Local\Temp/ccA9l5PR.s:4      *ABS*:0000003d __SP_L__
+C:\Users\JANHOR~1\AppData\Local\Temp/ccA9l5PR.s:5      *ABS*:00000034 __CCP__
+C:\Users\JANHOR~1\AppData\Local\Temp/ccA9l5PR.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\JANHOR~1\AppData\Local\Temp/ccA9l5PR.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\JANHOR~1\AppData\Local\Temp/ccA9l5PR.s:18     .text:00000000 _Z9uart_initv
+C:\Users\JANHOR~1\AppData\Local\Temp/ccA9l5PR.s:36     .text:0000000a _Z17uart_interrupt_rxh
+C:\Users\JANHOR~1\AppData\Local\Temp/ccA9l5PR.s:56     .text:00000016 _Z17uart_interrupt_txh
+
+NO UNDEFINED SYMBOLS
